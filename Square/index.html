@@ -1,0 +1,172 @@
+<!--
+	Foreword: this time I try to study and use JQuery to fix some problem that I face it before. I know 
+	this is contrary to the original requirements of the course but I thought maybe just... impressive?
+	Although the results of the use are very unsatisfactory, it really helped me to some degree of 
+	code optimization and simplicity. The price is beyond the imagination of time and because of the lack 
+	of proficiency, many of the code seems to be more difficult to understand.
+
+	Anyway, there are some advantages and disadvantages compared to the previous game(DaDaDa) I thought about.
+
+	Advantage: decrease some magic number.
+			   use pure code to realize game, no need to add any images.
+			   Looks more succinctness and maybe more interesting?
+
+	Disadvantage: Collision detection is still stupid, maybe more. I think this is probably the most 'impressive'
+				  part of my code.
+				  A lot of code is actually superfluous, my unskilled leads to this problem.
+				  Due to the addition of a lot of randomnesses, problems sometimes occur. For example, sometimes 
+				  player will keep the same colour for a long time (in fact it is randomly), or the squares under 
+				  the feet are not the same colour as player in a long time.
+				  Missing comments in many places, making the code less readable.
+
+	
+	In summary, Radu, I think I need more time to solve these problems, but this is a big problem in itself. I hope 
+	this game can impress you.@~@
+
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Square Jump</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin:0px;
+				font-family: "Comic Sans MS";
+			}
+			a{
+				text-decoration: none;
+				list-style: none;
+				color:rgb(0,0,0);
+			}
+			#main_box{
+				margin: 0px auto;
+				width:420px;
+				height: 580px;
+				background:skyblue;
+				position: relative;
+				overflow: hidden;
+			}
+			.can{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			#score{
+				width:auto;
+				height: 40px;
+				font-size:22px;
+				color:#7FFFD4;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				display: none;
+			}
+			#game_title{
+				display: none;
+				position: absolute;
+				width: 240px;
+				height: 80px;
+				line-height: 80px;
+				text-align: center;
+				top: 35%;
+				left: 50%;
+				margin-left:-120px;
+				font-size: 42px;
+				font-family:"century gothic";
+				font-weight: bolder;
+				text-shadow:4px 3px 2px black;
+				/*-webkit-text-stroke: 1px springgreen;
+				-moz-text-stroke: 1px springgreen;
+				-o-text-stroke: 1px springgreen;
+				text-stroke: 1px springgreen;*/
+				color:#fff;
+			}
+			#login_btn{
+				display: none;
+				position: absolute;
+				bottom:100px;
+				left: 50%;
+				width: 100px;
+				height: 40px;
+				margin-left: -50px;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 12px;
+				border: 2px solid #FFFFFF;
+				font-size: 18px;
+				color: #000000;
+				font-weight: normal;
+				background: peachpuff;
+			}
+			#login_btn:hover{
+				color: #fff;;
+			}
+			#login_btn:active{
+				background: #FFFFFF;
+				color: #000000;
+			}
+			#square_main{
+				width: 40px;
+				height: 40px;
+				position:absolute;
+				top:0px;
+				left: 0px;
+				border: 2px solid #FFFFFF;
+				display: none;
+				background:#FF6688;
+			}
+			#state{
+				width:280px;
+				height: 60px;
+				font-size:18px;
+				font-weight: bolder;
+				text-shadow: #FDF5E6;
+				color:blueviolet;
+				font-family: "arial narrow";
+				position: absolute;
+				top: 45%;
+				left: 50%;
+				line-height: 60px;
+				text-align: center;
+				margin-left: -140px;
+				display: none;
+			}
+			#colorChangeTime_div{
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				position: absolute;
+				text-align: center;
+				top:3%;
+				left: 50%;
+				display: none;
+				color:#FFFFFF;
+				font-size: 40px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main_box">
+			<canvas id="myCanvas1" class="can"></canvas>
+			<canvas id="myCanvas2" class="can"></canvas>
+			<a href="javascript:loginGame()" id="login_btn">Begin</a>
+			<div id="score"></div>
+			<div id="game_title">square&nbsp;J&nbsp;ump</div>
+			<div id="state"></div>
+			<span id="square_main"></span>
+			<div id="colorChangeTime_div">10</div>
+		</div>
+		<script type="text/javascript" src="js/main.js" ></script>
+		<script type="text/javascript" src="js/background.js" ></script>
+		<script type="text/javascript" src="js/square.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="js/mySquare.js" ></script>
+		<script type="text/javascript" src="js/beginAnim.js" ></script>
+	</body>
+</html>
